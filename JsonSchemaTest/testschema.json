@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "blockType": {
+      "type": "string"
+    },
+    "param": {
+      "oneOf": [
+        {
+          "if": {
+            "properties": { "blockType": { "const": "typeA" } }
+          },
+          "then": {
+            "type": "object",
+            "properties": {
+              "paramA": { "type": "string" },
+              "paramB": { "type": "integer" }
+            },
+            "required": ["paramA", "paramB"]
+          }
+        },
+        {
+          "if": {
+            "properties": { "blockType": { "const": "typeB" } }
+          },
+          "then": {
+            "type": "object",
+            "properties": {
+              "paramC": { "type": "boolean" },
+              "paramD": { "type": "number" }
+            },
+            "required": ["paramC", "paramD"]
+          }
+        },
+        {
+          "if": {
+            "properties": { "blockType": { "const": "typeC" } }
+          },
+          "then": {
+            "type": "object",
+            "properties": {
+              "paramE": { "type": "array", "items": { "type": "string" } },
+              "paramF": { "type": "null" }
+            },
+            "required": ["paramE", "paramF"]
+          }
+        }
+      ]
+    }
+  },
+  "required": ["blockType", "param"]
+}
