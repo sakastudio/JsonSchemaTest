@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonSchemaTest", "JsonSchemaTest\JsonSchemaTest.csproj", "{378F29D6-3EA7-4841-A5D1-2B1FE9E20DB0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{378F29D6-3EA7-4841-A5D1-2B1FE9E20DB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{378F29D6-3EA7-4841-A5D1-2B1FE9E20DB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{378F29D6-3EA7-4841-A5D1-2B1FE9E20DB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{378F29D6-3EA7-4841-A5D1-2B1FE9E20DB0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
