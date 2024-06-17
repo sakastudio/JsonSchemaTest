@@ -1,53 +1,497 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "http://example.com/example.json",
   "type": "object",
+  "default": {},
+  "title": "Root Schema",
+  "required": [
+    "Blocks"
+  ],
   "properties": {
-    "blockType": {
-      "type": "string"
-    },
-    "param": {
-      "oneOf": [
-        {
-          "if": {
-            "properties": { "blockType": { "const": "typeA" } }
+    "Blocks": {
+      "type": "array",
+      "title": "The Blocks Schema",
+      "items": {
+        "type": "object",
+        "default": {},
+        "title": "A Schema",
+        "required": [
+          "name",
+          "type",
+          "itemModId",
+          "itemName",
+          "size",
+          "param"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "default": "",
+            "title": "The name Schema",
+            "examples": [
+              "TestMachine"
+            ]
           },
-          "then": {
-            "type": "object",
-            "properties": {
-              "paramA": { "type": "string" },
-              "paramB": { "type": "integer" }
-            },
-            "required": ["paramA", "paramB"]
-          }
-        },
-        {
-          "if": {
-            "properties": { "blockType": { "const": "typeB" } }
+          "type": {
+            "type": "string",
+            "default": "",
+            "title": "The type Schema",
+            "examples": [
+              "Machine"
+            ]
           },
-          "then": {
-            "type": "object",
-            "properties": {
-              "paramC": { "type": "boolean" },
-              "paramD": { "type": "number" }
-            },
-            "required": ["paramC", "paramD"]
-          }
-        },
-        {
-          "if": {
-            "properties": { "blockType": { "const": "typeC" } }
+          "itemModId": {
+            "type": "string",
+            "default": "",
+            "title": "The itemModId Schema",
+            "examples": [
+              "Test Author:forUniTest"
+            ]
           },
-          "then": {
+          "itemName": {
+            "type": "string",
+            "default": "",
+            "title": "The itemName Schema",
+            "examples": [
+              "Test1"
+            ]
+          },
+          "size": {
             "type": "object",
+            "default": {},
+            "title": "The size Schema",
+            "required": [
+              "x",
+              "y",
+              "z"
+            ],
             "properties": {
-              "paramE": { "type": "array", "items": { "type": "string" } },
-              "paramF": { "type": "null" }
+              "x": {
+                "type": "integer",
+                "default": 0,
+                "title": "The x Schema",
+                "examples": [
+                  1
+                ]
+              },
+              "y": {
+                "type": "integer",
+                "default": 0,
+                "title": "The y Schema",
+                "examples": [
+                  1
+                ]
+              },
+              "z": {
+                "type": "integer",
+                "default": 0,
+                "title": "The z Schema",
+                "examples": [
+                  1
+                ]
+              }
             },
-            "required": ["paramE", "paramF"]
+            "examples": [{
+              "x": 1,
+              "y": 1,
+              "z": 1
+            }]
+          },
+          "param": {
+            "type": "object",
+            "default": {},
+            "title": "The param Schema",
+            "required": [
+              "inputSlot",
+              "outputSlot",
+              "requiredPower",
+              "inventoryConnectors"
+            ],
+            "properties": {
+              "inputSlot": {
+                "type": "integer",
+                "default": 0,
+                "title": "The inputSlot Schema",
+                "examples": [
+                  2
+                ]
+              },
+              "outputSlot": {
+                "type": "integer",
+                "default": 0,
+                "title": "The outputSlot Schema",
+                "examples": [
+                  3
+                ]
+              },
+              "requiredPower": {
+                "type": "integer",
+                "default": 0,
+                "title": "The requiredPower Schema",
+                "examples": [
+                  100
+                ]
+              },
+              "inventoryConnectors": {
+                "type": "object",
+                "default": {},
+                "title": "The inventoryConnectors Schema",
+                "required": [
+                  "inputConnects",
+                  "outputConnects"
+                ],
+                "properties": {
+                  "inputConnects": {
+                    "type": "array",
+                    "default": [],
+                    "title": "The inputConnects Schema",
+                    "items": {
+                      "type": "object",
+                      "default": {},
+                      "title": "A Schema",
+                      "required": [
+                        "offset"
+                      ],
+                      "properties": {
+                        "offset": {
+                          "type": "object",
+                          "default": {},
+                          "title": "The offset Schema",
+                          "required": [
+                            "x",
+                            "y",
+                            "z"
+                          ],
+                          "properties": {
+                            "x": {
+                              "type": "integer",
+                              "default": 0,
+                              "title": "The x Schema",
+                              "examples": [
+                                0
+                              ]
+                            },
+                            "y": {
+                              "type": "integer",
+                              "default": 0,
+                              "title": "The y Schema",
+                              "examples": [
+                                0
+                              ]
+                            },
+                            "z": {
+                              "type": "integer",
+                              "default": 0,
+                              "title": "The z Schema",
+                              "examples": [
+                                0
+                              ]
+                            }
+                          },
+                          "examples": [{
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                          }]
+                        }
+                      },
+                      "examples": [{
+                        "offset": {
+                          "x": 0,
+                          "y": 0,
+                          "z": 0
+                        }
+                      }]
+                    },
+                    "examples": [
+                      [{
+                        "offset": {
+                          "x": 0,
+                          "y": 0,
+                          "z": 0
+                        }
+                      }]
+                    ]
+                  },
+                  "outputConnects": {
+                    "type": "array",
+                    "default": [],
+                    "title": "The outputConnects Schema",
+                    "items": {
+                      "type": "object",
+                      "default": {},
+                      "title": "A Schema",
+                      "required": [
+                        "offset",
+                        "directions"
+                      ],
+                      "properties": {
+                        "offset": {
+                          "type": "object",
+                          "default": {},
+                          "title": "The offset Schema",
+                          "required": [
+                            "x",
+                            "y",
+                            "z"
+                          ],
+                          "properties": {
+                            "x": {
+                              "type": "integer",
+                              "default": 0,
+                              "title": "The x Schema",
+                              "examples": [
+                                0
+                              ]
+                            },
+                            "y": {
+                              "type": "integer",
+                              "default": 0,
+                              "title": "The y Schema",
+                              "examples": [
+                                0
+                              ]
+                            },
+                            "z": {
+                              "type": "integer",
+                              "default": 0,
+                              "title": "The z Schema",
+                              "examples": [
+                                0
+                              ]
+                            }
+                          },
+                          "examples": [{
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                          }]
+                        },
+                        "directions": {
+                          "type": "array",
+                          "default": [],
+                          "title": "The directions Schema",
+                          "items": {
+                            "type": "object",
+                            "title": "A Schema",
+                            "required": [
+                              "x",
+                              "y",
+                              "z"
+                            ],
+                            "properties": {
+                              "x": {
+                                "type": "integer",
+                                "title": "The x Schema",
+                                "examples": [
+                                  0,
+                                  1,
+                                  -1
+                                ]
+                              },
+                              "y": {
+                                "type": "integer",
+                                "title": "The y Schema",
+                                "examples": [
+                                  0
+                                ]
+                              },
+                              "z": {
+                                "type": "integer",
+                                "title": "The z Schema",
+                                "examples": [
+                                  -1,
+                                  1,
+                                  0
+                                ]
+                              }
+                            },
+                            "examples": [{
+                              "x": 0,
+                              "y": 0,
+                              "z": -1
+                            },
+                              {
+                                "x": 0,
+                                "y": 0,
+                                "z": 1
+                              },
+                              {
+                                "x": 1,
+                                "y": 0,
+                                "z": 0
+                              },
+                              {
+                                "x": -1,
+                                "y": 0,
+                                "z": 0
+                              }]
+                          },
+                          "examples": [
+                            [{
+                              "x": 0,
+                              "y": 0,
+                              "z": -1
+                            },
+                              {
+                                "x": 0,
+                                "y": 0,
+                                "z": 1
+                              },
+                              {
+                                "x": 1,
+                                "y": 0,
+                                "z": 0
+                              },
+                              {
+                                "x": -1,
+                                "y": 0,
+                                "z": 0
+                              }]
+                          ]
+                        }
+                      },
+                      "examples": [{
+                        "offset": {
+                          "x": 0,
+                          "y": 0,
+                          "z": 0
+                        },
+                        "directions": [{
+                          "x": 0,
+                          "y": 0,
+                          "z": -1
+                        },
+                          {
+                            "x": 0,
+                            "y": 0,
+                            "z": 1
+                          },
+                          {
+                            "x": 1,
+                            "y": 0,
+                            "z": 0
+                          },
+                          {
+                            "x": -1,
+                            "y": 0,
+                            "z": 0
+                          }]
+                      }]
+                    },
+                    "examples": [
+                      [{
+                        "offset": {
+                          "x": 0,
+                          "y": 0,
+                          "z": 0
+                        },
+                        "directions": [{
+                          "x": 0,
+                          "y": 0,
+                          "z": -1
+                        },
+                          {
+                            "x": 0,
+                            "y": 0,
+                            "z": 1
+                          },
+                          {
+                            "x": 1,
+                            "y": 0,
+                            "z": 0
+                          },
+                          {
+                            "x": -1,
+                            "y": 0,
+                            "z": 0
+                          }]
+                      }]
+                    ]
+                  }
+                },
+                "examples": [{
+                  "inputConnects": [{
+                    "offset": {
+                      "x": 0,
+                      "y": 0,
+                      "z": 0
+                    }
+                  }],
+                  "outputConnects": [{
+                    "offset": {
+                      "x": 0,
+                      "y": 0,
+                      "z": 0
+                    },
+                    "directions": [{
+                      "x": 0,
+                      "y": 0,
+                      "z": -1
+                    },
+                      {
+                        "x": 0,
+                        "y": 0,
+                        "z": 1
+                      },
+                      {
+                        "x": 1,
+                        "y": 0,
+                        "z": 0
+                      },
+                      {
+                        "x": -1,
+                        "y": 0,
+                        "z": 0
+                      }]
+                  }]
+                }]
+              }
+            },
+            "examples": [{
+              "inputSlot": 2,
+              "outputSlot": 3,
+              "requiredPower": 100,
+              "inventoryConnectors": {
+                "inputConnects": [{
+                  "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  }
+                }],
+                "outputConnects": [{
+                  "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "directions": [{
+                    "x": 0,
+                    "y": 0,
+                    "z": -1
+                  },
+                    {
+                      "x": 0,
+                      "y": 0,
+                      "z": 1
+                    },
+                    {
+                      "x": 1,
+                      "y": 0,
+                      "z": 0
+                    },
+                    {
+                      "x": -1,
+                      "y": 0,
+                      "z": 0
+                    }]
+                }]
+              }
+            }]
           }
         }
-      ]
+      }
     }
-  },
-  "required": ["blockType", "param"]
+  }
 }
